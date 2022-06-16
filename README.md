@@ -15,5 +15,7 @@ Cell classification by each timepoint using every data
 
 
 - patient4(test set): 20220502, 20220510 
+    - timepoint 1: CD4: 34, CD8: 24
+    - timepoint 2: CD4: 71, CD8: 59
 
 

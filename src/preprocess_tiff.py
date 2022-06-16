@@ -1,9 +1,10 @@
 import os 
 from pathlib import Path
+from src.DB_connection import Database
 import glob
 import pandas as pd 
-from src.DB_connection import Database
-
+import numpy as np 
+import tifffile
 
 def get_file_path_list(file_path:Path):
     return set(file_path.glob('*Tomogram.tiff'))
@@ -36,3 +37,51 @@ def get_qc_tiff(file_path:Path):
     cd4_label_table = get_merge_table(sql_file_list, cd4_list)
     cd8_label_table = get_merge_table(sql_file_list, cd8_list)
     return cd4_label_table, cd8_label_table
+
+def get_merged_data(df, df2, cd4_list, cd8_list) -> pd.DataFrame:
+    for i in range(len(cd4_list)):
+        df = pd.merge(df, cd4_list[i], on = ['num','quality','file_y'], how='outer' )
+    for i in range(len(cd8_list)):
+        df2 = pd.merge(df2, cd8_list[i], on = ['num','quality','file_y'], how='outer' )
+    return df, df2
+
+
+def read_image(Path):
+    return tifffile.imread(Path)
+
+def save_to_numpy(img_arr, file):
+    np.save(file, img_arr)
+
+# path to save img 
+def get_cd4_sepsis_timepoint1_output_filename(p:Path):
+    return Path(f'data/processed/cd4_timepoint_1/{p.stem}.npy')
+
+def get_cd8_sepsis_timepoint1_output_filename(p:Path):
+    return Path(f'data/processed/cd8_timepoint_1/{p.stem}.npy')
+
+def get_cd4_sepsis_timepoint2_output_filename(p:Path):
+    return Path(f'data/processed/cd4_timepoint_2/{p.stem}.npy')
+
+def get_cd8_sepsis_timepoint2_output_filename(p:Path):
+    return Path(f'data/processed/cd8_timepoint_2/{p.stem}.npy')
+
+#### Process workflow ####
+def process_timepoint1_cd4_sepsis_image(path):
+    img_arr = read_image(path)
+    save_to_numpy(img_arr, get_cd4_sepsis_timepoint1_output_filename(path))
+    return img_arr
+
+def process_timepoint1_cd8_sepsis_image(path):
+    img_arr = read_image(path)
+    save_to_numpy(img_arr, get_cd8_sepsis_timepoint1_output_filename(path))
+    return img_arr
+
+def process_timepoint2_cd4_sepsis_image(path):
+    img_arr = read_image(path)
+    save_to_numpy(img_arr, get_cd4_sepsis_timepoint2_output_filename(path))
+    return img_arr
+
+def process_timepoint2_cd8_sepsis_image(path):
+    img_arr = read_image(path)
+    save_to_numpy(img_arr, get_cd8_sepsis_timepoint2_output_filename(path))
+    return img_arr

@@ -1,3 +1,6 @@
 2022_Tomocube_timepoint/
 .ipynb_checkpoints/
 data/
+.env/
+src/__pycache__/
+__pycache__/

@@ -19,3 +19,11 @@ Cell classification by each timepoint using every data
     - timepoint 2: CD4: 71, CD8: 59
 
 
+### Result 
+(dropout은 0.001로 우선은 동일하게 진행)
+- CD8 lr 000001 seed 2022 : 86 , 59 
+- CD8 lr 000001 seed 42 : 86 , 62
+- CD8 lr 00001 seed 42 : 50 , _ 
+- CD8 lr 000001 seed 1 : 
+
+- 3D CNN model, CD8 lr 000001 seed 42 : 학습 안됨 

@@ -52,6 +52,7 @@ def read_image(Path):
 def save_to_numpy(img_arr, file):
     np.save(file, img_arr)
 
+""" Path for original train test sets"""
 # path to save img 
 def get_cd4_sepsis_timepoint1_output_filename(p:Path):
     return Path(f'data/processed/cd4_timepoint_1/{p.stem}.npy')
@@ -84,4 +85,42 @@ def process_timepoint2_cd4_sepsis_image(path):
 def process_timepoint2_cd8_sepsis_image(path):
     img_arr = read_image(path)
     save_to_numpy(img_arr, get_cd8_sepsis_timepoint2_output_filename(path))
+    return img_arr
+
+
+
+
+""" Path for original Patient4 test sets"""
+# path to save img 
+def get_cd4_sepsis_test_timepoint1_output_filename(p:Path):
+    return Path(f'data/processed/test/cd4_timepoint_1/{p.stem}.npy')
+
+def get_cd8_sepsis_test_timepoint1_output_filename(p:Path):
+    return Path(f'data/processed/test/cd8_timepoint_1/{p.stem}.npy')
+
+def get_cd4_sepsis_test_timepoint2_output_filename(p:Path):
+    return Path(f'data/processed/test/cd4_timepoint_2/{p.stem}.npy')
+
+def get_cd8_sepsis_test_timepoint2_output_filename(p:Path):
+    return Path(f'data/processed/test/cd8_timepoint_2/{p.stem}.npy')
+
+#### Process workflow ####
+def process_test_timepoint1_cd4_sepsis_image(path):
+    img_arr = read_image(path)
+    save_to_numpy(img_arr, get_cd4_sepsis_test_timepoint1_output_filename(path))
+    return img_arr
+
+def process_test_timepoint1_cd8_sepsis_image(path):
+    img_arr = read_image(path)
+    save_to_numpy(img_arr, get_cd8_sepsis_test_timepoint1_output_filename(path))
+    return img_arr
+
+def process_test_timepoint2_cd4_sepsis_image(path):
+    img_arr = read_image(path)
+    save_to_numpy(img_arr, get_cd4_sepsis_test_timepoint2_output_filename(path))
+    return img_arr
+
+def process_test_timepoint2_cd8_sepsis_image(path):
+    img_arr = read_image(path)
+    save_to_numpy(img_arr, get_cd8_sepsis_test_timepoint2_output_filename(path))
     return img_arr

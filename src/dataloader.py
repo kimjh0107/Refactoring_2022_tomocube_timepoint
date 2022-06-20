@@ -108,7 +108,7 @@ def get_augmentation_dataset(x_train_path, y_train_path, x_valid_path, y_valid_p
     train_df = torch.Tensor(np.load(x_train_path)).unsqueeze(1)
     train_dataset = CustomDataset(train_df, torch.LongTensor(np.load(y_train_path)), train_mode=True, transforms=train_transform)
    
-    for _ in range(3):
+    for _ in range(5):
         train_dataset += CustomDataset(train_df, torch.LongTensor(np.load(y_train_path)), train_mode=True, transforms=train_transform)
 
     valid_df = torch.Tensor(np.load(x_valid_path)).unsqueeze(1)

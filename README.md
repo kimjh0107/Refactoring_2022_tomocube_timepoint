@@ -23,7 +23,15 @@ Cell classification by each timepoint using every data
 (dropout은 0.001로 우선은 동일하게 진행)
 - CD8 lr 000001 seed 2022 : 86 , 59 
 - CD8 lr 000001 seed 42 : 86 , 62
-- CD8 lr 00001 seed 42 : 50 , _ 
-- CD8 lr 000001 seed 1 : 
+- CD8 lr 00001 seed 42 : 
+- CD8 lr 0000001 seed 42 epoch100: 84, 51 epoch 100 -> 더 돌려야될듯 
+- CD8 lr 0000001 seed 42 epoch1000: 85, 56 
+
+[augmentation 적용해본 후 결과 확인] - 기존 x 4 
+- CD8 lr 00001 seed 42 epoch 50: 84, 63    loss - 0.4 
+
+기존 x 6 
+- CD8 lr 00001 seed 42 epoch 100: 78,  77,   loss: 0.32 
+
 
 - 3D CNN model, CD8 lr 000001 seed 42 : 학습 안됨 

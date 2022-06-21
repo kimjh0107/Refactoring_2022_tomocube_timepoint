@@ -91,10 +91,21 @@ class CustomDataset(Dataset):
     def __len__(self): #길이 return
         return len(self.images)
 
+class AddGaussianNoise(object):
+    def __init__(self, mean=0., std=1.):
+        self.std = std
+        self.mean = mean
+        
+    def __call__(self, tensor):
+        return tensor + torch.randn(tensor.size()) * self.std + self.mean
+    
+    def __repr__(self):
+        return self.__class__.__name__ + '(mean={0}, std={1})'.format(self.mean, self.std)
 
 train_transform = transforms.Compose([
     transforms.RandomRotation(20),
     transforms.RandomHorizontalFlip(),
+   # AddGaussianNoise(0., 1.)
 ])
 
 test_transform = transforms.Compose([
@@ -108,8 +119,8 @@ def get_augmentation_dataset(x_train_path, y_train_path, x_valid_path, y_valid_p
     train_df = torch.Tensor(np.load(x_train_path)).unsqueeze(1)
     train_dataset = CustomDataset(train_df, torch.LongTensor(np.load(y_train_path)), train_mode=True, transforms=train_transform)
    
-    for _ in range(5):
-        train_dataset += CustomDataset(train_df, torch.LongTensor(np.load(y_train_path)), train_mode=True, transforms=train_transform)
+    # for _ in range(5):
+    #     train_dataset += CustomDataset(train_df, torch.LongTensor(np.load(y_train_path)), train_mode=True, transforms=train_transform)
 
     valid_df = torch.Tensor(np.load(x_valid_path)).unsqueeze(1)
     valid_dataset = CustomDataset(valid_df ,torch.LongTensor(np.load(y_valid_path)), train_mode=True, transforms=test_transform)

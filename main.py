@@ -17,7 +17,7 @@ def main():
     logger = set_logger()
     device = get_device()
     os.environ['CUDA_VISIBLE_DEVICES'] = '0,1'
-  #  model = create_model(device)
+   # model = create_model(device)
     model = test(device)
     model = nn.DataParallel(model)
 

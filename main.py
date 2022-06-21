@@ -10,7 +10,7 @@ from src.dataloader import *
 from src.earlystopping import EarlyStopping
 from src.train import *
 
-seed_everything(1)
+seed_everything(42)
 
 def main():
 
@@ -25,16 +25,16 @@ def main():
     scheduler = create_scheduler(optimizer)
     criterion = get_loss()
 
-    dataloaders = get_loader(CD8_X_TRAIN_PATH, CD8_Y_TRAIN_PATH, 
-                            CD8_X_VALID_PATH, CD8_Y_VALID_PATH, 
-                            CD8_X_TEST_PATH, CD8_Y_TEST_PATH, BATCH_SIZE)
+    # dataloaders = get_loader(CD8_X_TRAIN_PATH, CD8_Y_TRAIN_PATH, 
+    #                         CD8_X_VALID_PATH, CD8_Y_VALID_PATH, 
+    #                         CD8_X_TEST_PATH, CD8_Y_TEST_PATH, BATCH_SIZE)
 
 
-    # train_dataset, valid_dataset, test_dataset = get_augmentation_dataset(CD8_X_TRAIN_PATH, CD8_Y_TRAIN_PATH, 
-    #                                                                       CD8_X_VALID_PATH, CD8_Y_VALID_PATH, 
-    #                                                                       CD8_X_TEST_PATH, CD8_Y_TEST_PATH)
+    train_dataset, valid_dataset, test_dataset = get_augmentation_dataset(CD8_X_TRAIN_PATH, CD8_Y_TRAIN_PATH, 
+                                                                          CD8_X_VALID_PATH, CD8_Y_VALID_PATH, 
+                                                                          CD8_X_TEST_PATH, CD8_Y_TEST_PATH)
 
-    # dataloaders = get_augmentation_loader(train_dataset, valid_dataset, test_dataset, BATCH_SIZE)
+    dataloaders = get_augmentation_loader(train_dataset, valid_dataset, test_dataset, BATCH_SIZE)
 
 
     logger.info("Start Training") 
@@ -50,10 +50,10 @@ def main():
 
 
 
-  #  best_model, train_loss_history, val_loss_history =  train_model_v2(model, NUM_EPOCH, dataloaders, criterion, optimizer, device, scheduler, early_stopping)
-    best_model, train_loss_history, val_loss_history =  train_model_v3(model, NUM_EPOCH, dataloaders, criterion, optimizer, device, scheduler)
+    best_model, train_loss_history, val_loss_history =  train_model_v2(model, NUM_EPOCH, dataloaders, criterion, optimizer, device, scheduler, early_stopping)
+  #  best_model, train_loss_history, val_loss_history =  train_model_v3(model, NUM_EPOCH, dataloaders, criterion, optimizer, device, scheduler)
 
-    torch.save(best_model, 'model/cnn_model_1.pt') 
+    torch.save(best_model, 'model/model_1.pt') 
     save_loss_plot(train_loss_history, val_loss_history, LOSS_PATH)
 
 

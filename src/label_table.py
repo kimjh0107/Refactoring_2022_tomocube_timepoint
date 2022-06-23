@@ -37,3 +37,13 @@ def get_file_list(path1, path2, path3, path4)->list:
     table3 = get_merge_table(path3)
     table4 = get_merge_table(path4)
     return table1, table2, table3, table4
+
+
+
+
+
+
+def get_tcell_file_list(path1, path2)->list:
+    table1 = get_merge_table(path1)
+    table2 = get_merge_table(path2)
+    return table1, table2

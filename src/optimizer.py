@@ -1,11 +1,16 @@
 import torch.optim as optim 
 
+# def get_optim(model, learning_rate, weight_decay, adam_epsilon):
+#     return optim.Adam(model.parameters(), 
+#                       lr = learning_rate, 
+#                       weight_decay = weight_decay,
+#                       eps = adam_epsilon)
+
 def get_optim(model, learning_rate, weight_decay, adam_epsilon):
-    return optim.Adam(model.parameters(), 
+    return optim.SGD(model.parameters(), 
                       lr = learning_rate, 
                       weight_decay = weight_decay,
-                      eps = adam_epsilon)
-
+                      momentum=0.9)
 
 
 def create_scheduler(optimizer):

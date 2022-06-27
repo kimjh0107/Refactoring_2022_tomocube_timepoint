@@ -181,7 +181,7 @@ def save_loss_plot(train_loss:np.array, val_loss:np.array, path):
 def run_batch(phase, model, criterion, optimizer, X, label, device) : 
     X = X.to(device, non_blocking = True)
     label = label.to(device , non_blocking= True)
-    output = model(X)
+    output, *_ = model(X)
     loss = criterion(output, label)
     if phase == 'train' : 
         optimizer.zero_grad()

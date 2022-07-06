@@ -63,8 +63,7 @@ def calculate_roc(loader , model, device):
     return roc_auc_score(answers, preds) , answers, preds
 
 # %%
-X_TEST_CD8_PATH = 'test_cd8_x_test.npy'
-Y_TEST_CD8_PATH = 'test_cd8_y_test.npy'
+from config import *
 BATCH_SIZE = 1
 
 device = get_device()
@@ -113,3 +112,4 @@ display = PrecisionRecallDisplay(
 )
 display.plot()
 _ = display.ax_.set_title("Micro-averaged over all classes")
+# %%

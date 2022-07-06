@@ -7,3 +7,5 @@ __pycache__/
 model/
 config.py
 pytorch_grad_cam/
+raw_npy/
+npy/

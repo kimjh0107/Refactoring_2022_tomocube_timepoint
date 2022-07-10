@@ -82,3 +82,49 @@ Cell classification by each timepoint using every data
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |blin_test_2|patient 3|CD8|93.55|92.20|93.46|0.27
 |blin_test_2|patient 3|CD8_blindtest|49.19|46.77|51.96|1.027
+
+### 3. individual normalization
+|blind_test|exclusion_Patient_ID|test_dataset|AUROC|AUPR|ACC|loss
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|blin_test_2|patient 3|CD8|84.89|82.90|84.58|0.48
+|""|""|CD8_blindtest|48.50|46.46|50.98|0.77
+|blin_test_3|patient 4|CD8||||
+|""|""|CD8_blindtest|56.78|38.80|72.29|0.63
+|blin_test_4|patient 5|CD8||||
+|""|""|CD8_blindtest|72.99|72.85|72.47|0.81
+|blin_test_5|patient 6|CD8||||
+|""|""|CD8_blindtest|97.12|89.87|90.70|0.303
+
+
+### 4. individual normalization - no dropout 
+|blind_test|exclusion_Patient_ID|test_dataset|AUROC|AUPR|ACC|loss
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|blind_test_2|patient 3|CD8|83.16|81.89|82.71|0.49
+|""|""|CD8_blindtest|50.58|47.37|52.94|0.79
+
+|blind_test_4|patient 5|CD8|92.67|92.46|92.43|0.29
+|""|""|CD8_blindtest|72.49|72.37|71.97|0.91
+
+|blind_test_3|patient 4|CD8|91.83|86.63|89.35|0.46
+|""|""|CD8_blindtest|88.14|51.12|75.90|0.54
+|blind_test_5|patient 6|CD8|95.88|92.31|92.13|0.32
+|""|""|CD8_blindtest|96.96|90.19|91.12|0.27
+|blind_test_6|patient 7|CD8|93.72|89.87|90.45|0.40
+|""|""|CD8_blindtest|95.91|77.88|81.03|0.44
+|blind_test_7|patient 8|CD8|93.56|92.39|93.05|0.35
+|""|""|CD8_blindtest|92.90|73.38|71.69|0.4933
+
+
+
+
+### 5. Standardization result - with dropout 0.5 학습 x 
+|blind_test|exclusion_Patient_ID|test_dataset|AUROC|AUPR|ACC|loss
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|blin_test_2|patient 3|CD8|50.00|51.87|51.87|2.01
+|""|""|CD8_blindtest|50.00|47.06|47.06|2.22
+
+### 6. Standardization 모든 데이터의 값 result - with dropout x  학습 x 
+|blind_test|exclusion_Patient_ID|test_dataset|AUROC|AUPR|ACC|loss
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|blin_test_2|patient 3|CD8|50.00|51.87|51.87|2.01
+|""|""|CD8_blindtest|50.00|47.06|47.06|1.84

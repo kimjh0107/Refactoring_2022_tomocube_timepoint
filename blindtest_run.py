@@ -37,13 +37,15 @@ def normalize_individual_image(img_list):
         result.append(output)
     return result
 
+
+
 def main(remove_patient:int, celltype:str):
 
     logger = set_logger()
     device = get_device()
     os.environ['CUDA_VISIBLE_DEVICES'] = '0,1'
    # model = test(device)
-    model = create_densenet_model(device)
+    model = create_densenet_model2(device)
     model = nn.DataParallel(model)
 
     optimizer = get_optim(model, LEARNING_RATE, WEIGHT_DECAY, ADAM_EPSILON)
@@ -53,19 +55,16 @@ def main(remove_patient:int, celltype:str):
 
     cd8_x_train_path, cd8_y_train_path, cd8_x_valid_path, cd8_y_valid_path, cd8_x_test_path, cd8_y_test_path = get_pathes(remove_patient, celltype)
 
-    # img = np.load(cd8_x_train_path)
-    # normalize_mean = np.mean(img)
-    # normalize_std = np.std(img)
 
     train_transform = transforms.Compose([
         transforms.RandomRotation(20),
         transforms.RandomHorizontalFlip(),
         transforms.RandomVerticalFlip(),
-        #transforms.Normalize(mean = [normalize_mean], std= [normalize_std])
+      #  transforms.Normalize(mean = [13443.116605472607], std= [140.26098846472203])
     ])
 
     test_transform = transforms.Compose([
-       # transforms.Normalize(mean = [normalize_mean], std = [normalize_std])
+       # transforms.Normalize(mean = [13443.116605472607], std = [140.26098846472203])
                     ])
 
 
@@ -73,12 +72,16 @@ def main(remove_patient:int, celltype:str):
     def get_augmentation_dataset(x_train_path, y_train_path, x_valid_path, y_valid_path, x_test_path, y_test_path):
         
         train_df = torch.Tensor(normalize_individual_image(np.load(x_train_path))).unsqueeze(1)
+        #train_df = torch.Tensor(np.load(x_train_path)).unsqueeze(1)
+
         train_dataset = CustomDataset(train_df, torch.LongTensor(np.load(y_train_path)), train_mode=True, transforms=train_transform)
     
         valid_df = torch.Tensor(normalize_individual_image(np.load(x_valid_path))).unsqueeze(1)
+        #valid_df = torch.Tensor(np.load(x_valid_path)).unsqueeze(1)     
         valid_dataset = CustomDataset(valid_df ,torch.LongTensor(np.load(y_valid_path)), train_mode=True, transforms=test_transform)
 
         test_df = torch.Tensor(normalize_individual_image(np.load(x_test_path))).unsqueeze(1)
+        #test_df = torch.Tensor(np.load(x_test_path)).unsqueeze(1)
         test_dataset = CustomDataset(test_df , torch.LongTensor(np.load(y_test_path)), train_mode=True, transforms=test_transform)
 
         return train_dataset, valid_dataset, test_dataset
@@ -103,14 +106,16 @@ def main(remove_patient:int, celltype:str):
 
     best_model, train_loss_history, val_loss_history =  train_model_v2(model, NUM_EPOCH, dataloaders, criterion, optimizer, device, scheduler, early_stopping)
 
-    torch.save(best_model, f'model/blind_test_model_individual/blindtest_{remove_patient}_{celltype}_model_1.pt') 
-    LOSS_PATH = f'model/plot/ind_blindtest_{remove_patient}_{celltype}'
+    torch.save(best_model, f'model/blind_test_model_individual/re_blindtest_{remove_patient}_{celltype}_model_1.pt') 
+    LOSS_PATH = f'model/plot/re_ind_blindtest_{remove_patient}_{celltype}'
     save_loss_plot(train_loss_history, val_loss_history, LOSS_PATH)
     plt.clf()
 
 
+
+
 if __name__ == '__main__':
-    main(2, 'cd8')
-    main(2, 'cd4')
-    main(4, 'cd8')
-    main(4, 'cd4')
+    main(1, 'cd8')
+    main(10, 'cd8')
+   # main(4, 'cd8')
+   # main(4, 'cd4')

@@ -117,10 +117,32 @@ Cell classification by each timepoint using every data
 |""|""|CD8_blindtest|86.15|49.74|79.41|0.44
 |blind_test_9|patient 10|CD8|94.42|94.05|94.63|0.25
 |""|""|CD8_blindtest|83.24|74.57|81.59|0.60
-|blind_test_10|patient 11|CD8||||
-|""|""|CD8_blindtest||||
+|blind_test_10|patient 11|CD8|78.77|72.82|79.90|0.80
+|""|""|CD8_blindtest|93.26|89.71|92.61|0.27
 
 
+|blind_test|exclusion_Patient_ID|test_dataset|AUROC|AUPR|ACC|loss
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|blind_test_1|patient 2|CD4||||
+|""|""|CD4_blindtest||||
+|blind_test_2|patient 3|CD4||||
+|""|""|CD4_blindtest||||
+|blind_test_3|patient 4|CD4||||
+|""|""|CD4_blindtest||||
+|blind_test_4|patient 5|CD4||||
+|""|""|CD4_blindtest||||
+|blind_test_5|patient 6|CD4||||
+|""|""|CD4_blindtest||||
+|blind_test_6|patient 7|CD4||||
+|""|""|CD4_blindtest||||
+|blind_test_7|patient 8|CD4||||
+|""|""|CD4_blindtest||||
+|blind_test_8|patient 9|CD4||||
+|""|""|CD4_blindtest||||
+|blind_test_9|patient 10|CD4||||
+|""|""|CD4_blindtest||||
+|blind_test_10|patient 11|CD4||||
+|""|""|CD4_blindtest||||
 
 
 

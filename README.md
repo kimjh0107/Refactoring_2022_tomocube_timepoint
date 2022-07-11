@@ -32,16 +32,16 @@ Cell classification by each timepoint using every data
 |20220608|11-2|timepoint_2|
 
 # Leave one out dataset 
-1) blind test_1 ID: patient 2 
-2) blind test_2 ID: patient 3 
-3) blind test_3 ID: patient 4 
-4) blind test_4 ID: patient 5 
-5) blind test_5 ID: patient 6 
-6) blind test_6 ID: patient 7
-7) blind test_7 ID: patient 8 
-8) blind test_8 ID: patient 9
-9) blind test_9 ID: patient 10 
-10) blind test_10 ID: patient 11
+1) blind test_1 ID: patient 2 (n=19)
+2) blind test_2 ID: patient 3 (n=102)
+3) blind test_3 ID: patient 4 (n=83)
+4) blind test_4 ID: patient 5 (n=396)
+5) blind test_5 ID: patient 6 (n=473)
+6) blind test_6 ID: patient 7 (n=253)
+7) blind test_7 ID: patient 8 (n=378)
+8) blind test_8 ID: patient 9 (n=68)
+9) blind test_9 ID: patient 10 (n=201)
+10) blind test_10 ID: patient 11 (n=203)
 
 - timepoint 1: 20220405, 20220421, 20220422, 20220519, 20220520, 20220526 ,20220526_2, 20220602_3, 20220603_3, 20220607_2
     - patient ID: 1-1, 2-1, 3-1, 5-1, 6-1, 7-1, 8-1, 9-1, 10-1, 11-1
@@ -83,7 +83,7 @@ Cell classification by each timepoint using every data
 |blin_test_2|patient 3|CD8|93.55|92.20|93.46|0.27
 |blin_test_2|patient 3|CD8_blindtest|49.19|46.77|51.96|1.027
 
-### 3. individual normalization
+### 3. individual normalization - with dropout 0.5 
 |blind_test|exclusion_Patient_ID|test_dataset|AUROC|AUPR|ACC|loss
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |blin_test_2|patient 3|CD8|84.89|82.90|84.58|0.48
@@ -99,6 +99,8 @@ Cell classification by each timepoint using every data
 ### 4. individual normalization - no dropout 
 |blind_test|exclusion_Patient_ID|test_dataset|AUROC|AUPR|ACC|loss
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|blind_test_1|patient 2|CD8|91.56|89.27|91.44|0.35
+|""|""|CD8_blindtest|52.22|47.37|47.37|0.85
 |blind_test_2|patient 3|CD8|83.16|81.89|82.71|0.49
 |""|""|CD8_blindtest|50.58|47.37|52.94|0.79
 |blind_test_3|patient 4|CD8|91.83|86.63|89.35|0.46
@@ -111,12 +113,16 @@ Cell classification by each timepoint using every data
 |""|""|CD8_blindtest|95.91|77.88|81.03|0.44
 |blind_test_7|patient 8|CD8|93.56|92.39|93.05|0.35
 |""|""|CD8_blindtest|92.90|73.38|71.69|0.4933
-
-|blind_test_8|patient 9|CD8||||
+|blind_test_8|patient 9|CD8|93.77|90.42|92.20|0.31
+|""|""|CD8_blindtest|86.15|49.74|79.41|0.44
+|blind_test_9|patient 10|CD8|94.42|94.05|94.63|0.25
+|""|""|CD8_blindtest|83.24|74.57|81.59|0.60
+|blind_test_10|patient 11|CD8||||
 |""|""|CD8_blindtest||||
 
-|blind_test_9|patient 10|CD8||||
-|""|""|CD8_blindtest||||
+
+
+
 
 
 

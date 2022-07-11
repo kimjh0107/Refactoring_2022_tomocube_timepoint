@@ -101,12 +101,10 @@ Cell classification by each timepoint using every data
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |blind_test_2|patient 3|CD8|83.16|81.89|82.71|0.49
 |""|""|CD8_blindtest|50.58|47.37|52.94|0.79
-
-|blind_test_4|patient 5|CD8|92.67|92.46|92.43|0.29
-|""|""|CD8_blindtest|72.49|72.37|71.97|0.91
-
 |blind_test_3|patient 4|CD8|91.83|86.63|89.35|0.46
 |""|""|CD8_blindtest|88.14|51.12|75.90|0.54
+|blind_test_4|patient 5|CD8|92.67|92.46|92.43|0.29
+|""|""|CD8_blindtest|72.49|72.37|71.97|0.91
 |blind_test_5|patient 6|CD8|95.88|92.31|92.13|0.32
 |""|""|CD8_blindtest|96.96|90.19|91.12|0.27
 |blind_test_6|patient 7|CD8|93.72|89.87|90.45|0.40
@@ -114,6 +112,11 @@ Cell classification by each timepoint using every data
 |blind_test_7|patient 8|CD8|93.56|92.39|93.05|0.35
 |""|""|CD8_blindtest|92.90|73.38|71.69|0.4933
 
+|blind_test_8|patient 9|CD8||||
+|""|""|CD8_blindtest||||
+
+|blind_test_9|patient 10|CD8||||
+|""|""|CD8_blindtest||||
 
 
 

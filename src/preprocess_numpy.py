@@ -145,7 +145,6 @@ def split_only_test_dataset(timepoint1_list, timepoint2_list):
 
     return x_train, y_train
 
-
 def save_cd4_test_preprocessed_data(x_test,y_test) : 
     np.save('data/npy/test_cd4_x_test.npy', x_test)
     np.save('data/npy/test_cd4_y_test.npy', y_test)
@@ -161,16 +160,16 @@ def save_cd8_test_preprocessed_data(x_test,y_test) :
 
 
 
-tcell_timepoint_list1_list = []
-def get_tcell_timepoint1_new_list(tcell_list, tcell_path) -> list:
-    for p in tcell_list['file_path']:
-        tcell_timepoint_list1_list.append(f'{tcell_path}/{p}')
-    tcell_list['file_path'] = tcell_timepoint_list1_list
-    return tcell_list
+# tcell_timepoint_list1_list = []
+# def get_tcell_timepoint1_new_list(tcell_list, tcell_path) -> list:
+#     for p in tcell_list['file_path']:
+#         tcell_timepoint_list1_list.append(f'{tcell_path}/{p}')
+#     tcell_list['file_path'] = tcell_timepoint_list1_list
+#     return tcell_list
 
-tcell_timepoint_list2_list = []
-def get_timepoint2_new_list(tcell_list, tcell_path) -> list:
-    for p in tcell_list['file_path']:
-        tcell_timepoint_list2_list.append(f'{tcell_path}/{p}')
-    tcell_list['file_path'] = tcell_timepoint_list2_list
-    return tcell_list
+# tcell_timepoint_list2_list = []
+# def get_tcell_timepoint2_new_list(tcell_list, tcell_path) -> list:
+#     for p in tcell_list['file_path']:
+#         tcell_timepoint_list2_list.append(f'{tcell_path}/{p}')
+#     tcell_list['file_path'] = tcell_timepoint_list2_list
+#     return tcell_list

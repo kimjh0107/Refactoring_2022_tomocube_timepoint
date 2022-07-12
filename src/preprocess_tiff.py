@@ -45,6 +45,13 @@ def get_merged_data(df, df2, cd4_list, cd8_list) -> pd.DataFrame:
         df2 = pd.merge(df2, cd8_list[i], on = ['num','quality','file_y'], how='outer' )
     return df, df2
 
+def get_SOFA_merged_data(df, df2, cd4_list, cd8_list) -> pd.DataFrame:
+    for i in range(len(cd4_list)):
+        df = pd.merge(df, cd4_list[i], on = ['num','quality','file_y','SOFA'], how='outer' )
+    for i in range(len(cd8_list)):
+        df2 = pd.merge(df2, cd8_list[i], on = ['num','quality','file_y','SOFA'], how='outer' )
+    return df, df2
+
 
 def read_image(Path):
     return tifffile.imread(Path)
@@ -85,6 +92,25 @@ def process_timepoint2_cd4_sepsis_image(path):
 def process_timepoint2_cd8_sepsis_image(path):
     img_arr = read_image(path)
     save_to_numpy(img_arr, get_cd8_sepsis_timepoint2_output_filename(path))
+    return img_arr
+
+
+
+# for SOFA data extraction 
+def get_SOFA_cd4_sepsis_output_filename(p:Path):
+    return Path(f'data/processed/cd4/{p.stem}.npy')
+
+def get_SOFA_cd8_sepsis_output_filename(p:Path):
+    return Path(f'data/processed/cd8/{p.stem}.npy')
+
+def process_SOFA_cd4_sepsis_image(path):
+    img_arr = read_image(path)
+    save_to_numpy(img_arr, get_SOFA_cd4_sepsis_output_filename(path))
+    return img_arr
+
+def process_SOFA_cd8_sepsis_image(path):
+    img_arr = read_image(path)
+    save_to_numpy(img_arr, get_SOFA_cd8_sepsis_output_filename(path))
     return img_arr
 
 

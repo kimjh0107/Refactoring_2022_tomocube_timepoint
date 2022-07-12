@@ -204,6 +204,10 @@ class DenseNet(nn.Module):
                 m.bias = nn.init.normal_(m.bias)
 
 net = d169_3d(num_classes=2, sample_size=64, sample_duration=96, drop_rate=0.5, norm="bn", act="lrelu")
+net2 = d169_3d(num_classes=2, sample_size=64, sample_duration=96, norm="bn", act="lrelu")
 
 def create_densenet_model(device):
     return net.to(device)
+
+def create_densenet_model2(device):
+    return net2.to(device)

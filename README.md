@@ -137,12 +137,12 @@ Cell classification by each timepoint using every data
 |""|""|CD4_blindtest||||
 |blind_test_7|patient 8|CD4||||
 |""|""|CD4_blindtest||||
-|blind_test_8|patient 9|CD4||||
-|""|""|CD4_blindtest||||
-|blind_test_9|patient 10|CD4||||
-|""|""|CD4_blindtest||||
-|blind_test_10|patient 11|CD4||||
-|""|""|CD4_blindtest||||
+|blind_test_8|patient 9|CD4|55.37|57.29|58.41|0.67
+|""|""|CD4_blindtest|68.44|50.48|70.30|0.59
+|blind_test_9|patient 10|CD4|55.69|57.21|64.56|0.65
+|""|""|CD4_blindtest|70.31|84.24|46.56|0.71
+|blind_test_10|patient 11|CD4|66.96|61.89|61.50|0.64
+|""|""|CD4_blindtest|53.18|42.35|70.90|0.611
 
 
 

@@ -123,13 +123,13 @@ Cell classification by each timepoint using every data
 
 |blind_test|exclusion_Patient_ID|test_dataset|AUROC|AUPR|ACC|loss
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|blind_test_1|patient 2|CD4||||
-|""|""|CD4_blindtest||||
-|blind_test_2|patient 3|CD4||||
-|""|""|CD4_blindtest||||
-|blind_test_3|patient 4|CD4||||
-|""|""|CD4_blindtest||||
-|blind_test_4|patient 5|CD4||||
+|blind_test_1|patient 2|CD4|52.31|55.21|58.52|0.69
+|""|""|CD4_blindtest|37.50|92.36|38.89|0.79
+|blind_test_2|patient 3|CD4|69.56|60.45|61.99|0.62
+|""|""|CD4_blindtest|46.69|38.86|47.92|0.73
+|blind_test_3|patient 4|CD4|46.69|38.86|47.92|0.73
+|""|""|CD4_blindtest|17.48|26.60|19.05|1.05
+|blind_test_4|patient 5|CD4|64.88|56.26|64.29|0.62
 |""|""|CD4_blindtest||||
 |blind_test_5|patient 6|CD4||||
 |""|""|CD4_blindtest||||
